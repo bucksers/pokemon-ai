@@ -27,6 +27,20 @@ AI agent that autonomously plays Pokemon FireRed through mGBA-http emulator API.
 - Never commit directly to `main` — always branch and merge
 - Run `uv run ruff check src/ tests/` before committing
 
+### Allowed Commands
+- `git status`
+- `git diff` / `git diff --staged`
+- `git log` (with any formatting flags)
+- `git branch` (list/create/delete local branches)
+- `git checkout` / `git checkout -b`
+- `git add` (specific files)
+- `git commit -m`
+- `git merge --no-ff`
+- `uv run pytest`
+- `uv run ruff check src/ tests/`
+- `uv run ruff format src/ tests/`
+- `uv sync`
+
 ## Conventions
 - Python 3.12, async/await throughout
 - Pydantic models for all structured data
