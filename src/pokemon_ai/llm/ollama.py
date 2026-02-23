@@ -88,6 +88,19 @@ class OllamaProvider(LLMProvider):
                 m["images"] = [msg.image_b64]
             ollama_messages.append(m)
 
+        # Most vision models don't support Ollama's tool format,
+        # so we always use text mode and parse the response.
+        if tools:
+            tool_hint = (
+                "\n\nRespond with ONLY the button to press. "
+                "Valid buttons: A, B, UP, DOWN, LEFT, RIGHT, START, SELECT. "
+                "Example: 'press A' or just 'A'. No other text."
+            )
+            for m in ollama_messages:
+                if m["role"] == "system":
+                    m["content"] += tool_hint
+                    break
+
         payload: dict = {
             "model": self.model,
             "messages": ollama_messages,
@@ -95,35 +108,11 @@ class OllamaProvider(LLMProvider):
             "options": {"temperature": temperature},
         }
 
-        # Try with tools first, fall back without if model doesn't support them
-        if tools:
-            payload["tools"] = tools
-
         async with httpx.AsyncClient(timeout=120.0) as client:
             resp = await client.post(
                 f"{self.base_url}/api/chat",
                 json=payload,
             )
-
-            # If tools not supported, retry without them
-            if resp.status_code == 400 and tools:
-                payload.pop("tools")
-                # Add tool instructions to the system message so model knows what to do
-                tool_hint = (
-                    "\n\nRespond with ONLY the button to press. "
-                    "Valid buttons: A, B, UP, DOWN, LEFT, RIGHT, START, SELECT. "
-                    "Example: 'press A' or just 'A'."
-                )
-                for m in ollama_messages:
-                    if m["role"] == "system":
-                        m["content"] += tool_hint
-                        break
-                payload["messages"] = ollama_messages
-                resp = await client.post(
-                    f"{self.base_url}/api/chat",
-                    json=payload,
-                )
-
             resp.raise_for_status()
             data = resp.json()
 
