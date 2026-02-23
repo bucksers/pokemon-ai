@@ -47,19 +47,19 @@ class EmulatorClient:
 
     async def read_byte(self, address: int) -> int:
         """Read a single byte from memory."""
-        resp = await self.client.get(f"/mgba-http/memory/read8", params={"address": address})
+        resp = await self.client.get("/mgba-http/memory/read8", params={"address": address})
         resp.raise_for_status()
         return resp.json()["value"]
 
     async def read_halfword(self, address: int) -> int:
         """Read a 16-bit value from memory."""
-        resp = await self.client.get(f"/mgba-http/memory/read16", params={"address": address})
+        resp = await self.client.get("/mgba-http/memory/read16", params={"address": address})
         resp.raise_for_status()
         return resp.json()["value"]
 
     async def read_word(self, address: int) -> int:
         """Read a 32-bit value from memory."""
-        resp = await self.client.get(f"/mgba-http/memory/read32", params={"address": address})
+        resp = await self.client.get("/mgba-http/memory/read32", params={"address": address})
         resp.raise_for_status()
         return resp.json()["value"]
 
