@@ -8,7 +8,7 @@ class Settings(BaseSettings):
 
     # mGBA-http
     mgba_host: str = "localhost"
-    mgba_port: int = 5000
+    mgba_port: int = 5001
 
     # Ollama
     ollama_base_url: str = "http://localhost:11434"
