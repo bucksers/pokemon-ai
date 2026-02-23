@@ -1,0 +1,1 @@
+"""Pokemon FireRed AI Agent."""
