@@ -1,7 +1,7 @@
 """Detect the current game mode (overworld, battle, menu, dialogue)."""
 
 from pokemon_ai.emulator.client import EmulatorClient
-from pokemon_ai.memory.addresses import BATTLE_FLAG, CALLBACK1, CALLBACK2
+from pokemon_ai.memory.addresses import BATTLE_FLAG, CALLBACK2
 from pokemon_ai.memory.reader import read_u32
 from pokemon_ai.state.game_state import GameMode
 

@@ -2,7 +2,6 @@
 
 import struct
 
-import pytest
 
 from pokemon_ai.memory.decrypt import (
     SUBSTRUCTURE_ORDER,
