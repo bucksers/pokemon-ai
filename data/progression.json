@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "name": "Start in Pallet Town",
+    "description": "Get starter Pokemon from Prof. Oak's lab",
+    "objective": "Go downstairs, try to leave town north, go to Oak's lab, pick a starter",
+    "completion_check": "party_count >= 1"
+  },
+  {
+    "step": 2,
+    "name": "Rival Battle 1",
+    "description": "Battle rival in Oak's lab after choosing starter",
+    "objective": "Win the rival battle",
+    "completion_check": "badge_count >= 0 and party[0].level >= 6"
+  },
+  {
+    "step": 3,
+    "name": "Oak's Parcel",
+    "description": "Go north to Viridian City, get Oak's Parcel from Pokemart, deliver to Oak",
+    "objective": "Walk north through Route 1 to Viridian City, get parcel, return to Oak",
+    "completion_check": "has_pokedex"
+  },
+  {
+    "step": 4,
+    "name": "Route 1 & Viridian Forest",
+    "description": "Train on Route 1 and through Viridian Forest to reach Pewter City",
+    "objective": "Grind to level 12-14, catch a Pikachu or Caterpie in Viridian Forest",
+    "completion_check": "party[0].level >= 12"
+  },
+  {
+    "step": 5,
+    "name": "Pewter City Gym (Brock)",
+    "description": "Rock-type gym. Use Water/Grass if available, otherwise grind",
+    "objective": "Defeat Brock for the Boulder Badge. His team: Geodude Lv12, Onix Lv14",
+    "completion_check": "badge_count >= 1"
+  },
+  {
+    "step": 6,
+    "name": "Mt. Moon",
+    "description": "Travel through Route 3 and Mt. Moon to reach Cerulean City",
+    "objective": "Fight trainers, navigate Mt. Moon, pick up fossils",
+    "completion_check": "map_group == cerulean_city"
+  },
+  {
+    "step": 7,
+    "name": "Cerulean City Gym (Misty)",
+    "description": "Water-type gym. Use Electric/Grass",
+    "objective": "Defeat Misty for Cascade Badge. Her team: Staryu Lv18, Starmie Lv21",
+    "completion_check": "badge_count >= 2"
+  },
+  {
+    "step": 8,
+    "name": "S.S. Anne & Vermilion",
+    "description": "Go south through Route 5, underground to Route 6, reach Vermilion City",
+    "objective": "Board S.S. Anne, get HM01 Cut from captain, prepare for Lt. Surge",
+    "completion_check": "has_hm_cut"
+  },
+  {
+    "step": 9,
+    "name": "Vermilion City Gym (Lt. Surge)",
+    "description": "Electric-type gym with trash can puzzle",
+    "objective": "Solve trash can locks, defeat Lt. Surge. His team: Voltorb Lv21, Pikachu Lv18, Raichu Lv24",
+    "completion_check": "badge_count >= 3"
+  },
+  {
+    "step": 10,
+    "name": "Rock Tunnel to Lavender",
+    "description": "Go east from Cerulean through Rock Tunnel (need Flash)",
+    "objective": "Navigate Rock Tunnel to reach Lavender Town",
+    "completion_check": "map_group == lavender_town"
+  },
+  {
+    "step": 11,
+    "name": "Celadon City Gym (Erika)",
+    "description": "Grass-type gym. Use Fire/Flying/Ice",
+    "objective": "Defeat Erika for Rainbow Badge. Her team: Victreebel Lv29, Tangela Lv24, Vileplume Lv29",
+    "completion_check": "badge_count >= 4"
+  },
+  {
+    "step": 12,
+    "name": "Pokemon Tower",
+    "description": "Get Silph Scope from Team Rocket in Celadon, clear Pokemon Tower",
+    "objective": "Rescue Mr. Fuji from Pokemon Tower, get Poke Flute",
+    "completion_check": "has_poke_flute"
+  },
+  {
+    "step": 13,
+    "name": "Fuchsia City Gym (Koga)",
+    "description": "Poison-type gym. Use Psychic/Ground",
+    "objective": "Defeat Koga for Soul Badge. His team: Koffing Lv37, Muk Lv39, Koffing Lv37, Weezing Lv43",
+    "completion_check": "badge_count >= 5"
+  },
+  {
+    "step": 14,
+    "name": "Saffron City Gym (Sabrina)",
+    "description": "Psychic-type gym with warp tiles. Use Bug/Ghost/Dark",
+    "objective": "Clear Silph Co first, then defeat Sabrina. Her team: Kadabra Lv38, Mr. Mime Lv37, Venomoth Lv38, Alakazam Lv43",
+    "completion_check": "badge_count >= 6"
+  },
+  {
+    "step": 15,
+    "name": "Cinnabar Island Gym (Blaine)",
+    "description": "Fire-type gym. Use Water/Ground/Rock",
+    "objective": "Defeat Blaine for Volcano Badge. His team: Growlithe Lv42, Ponyta Lv40, Rapidash Lv42, Arcanine Lv47",
+    "completion_check": "badge_count >= 7"
+  },
+  {
+    "step": 16,
+    "name": "Viridian City Gym (Giovanni)",
+    "description": "Ground-type gym. Use Water/Grass/Ice",
+    "objective": "Defeat Giovanni for Earth Badge. His team: Rhyhorn Lv45, Dugtrio Lv42, Nidoqueen Lv44, Nidoking Lv45, Rhyhorn Lv50",
+    "completion_check": "badge_count >= 8"
+  },
+  {
+    "step": 17,
+    "name": "Victory Road",
+    "description": "Navigate Victory Road's boulder puzzles",
+    "objective": "Get through Victory Road to reach the Pokemon League",
+    "completion_check": "map_group == pokemon_league"
+  },
+  {
+    "step": 18,
+    "name": "Elite Four & Champion",
+    "description": "Battle Lorelei (Ice), Bruno (Fighting), Agatha (Ghost), Lance (Dragon), then Champion rival",
+    "objective": "Defeat all Elite Four members and the Champion to beat the game",
+    "completion_check": "hall_of_fame"
+  }
+]
